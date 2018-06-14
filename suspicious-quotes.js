@@ -29,7 +29,7 @@ const WHITELIST = new Set([
 const OPEN_QUOTE = '“';
 const CLOSE_QUOTE = '”';
 
-const RATIO = 0.05;
+const RATIO = 0.02;
 
 function findWords(text) {
   const indices = [];
