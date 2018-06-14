@@ -43,6 +43,8 @@ function findWords(text) {
 function injectQuotes(node) {
   let modified = false;
   let text = node.nodeValue;
+
+  // we iterate backwards so modifying the string doesn't mess up the indices
   const words = findWords(text).reverse();
   words.forEach(([start, end]) => {
     if (Math.random() < RATIO) {
