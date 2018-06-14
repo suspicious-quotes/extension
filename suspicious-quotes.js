@@ -29,8 +29,6 @@ const WHITELIST = new Set([
 const OPEN_QUOTE = '“';
 const CLOSE_QUOTE = '”';
 
-const RATIO = 0.02;
-
 function findWords(text) {
   const indices = [];
   const wordRegex = /\w+/g;
@@ -41,30 +39,35 @@ function findWords(text) {
   return indices;
 }
 
-function addQuotes(text) {
+function addQuotes(text, intensity) {
   // we iterate backwards so modifying the string doesn't mess up the indices
   const words = findWords(text).reverse();
   words.forEach(([start, end]) => {
-    if (Math.random() < RATIO) {
+    if (Math.random() < intensity) {
       text = text.slice(0, start) + OPEN_QUOTE + text.slice(start, end) + CLOSE_QUOTE + text.slice(end);
     }
   });
   return text;
 }
 
-function traverseNodes(node) {
+function traverseNodes(node, intensity) {
   if (node.nodeType === Node.TEXT_NODE) {
     if (node.nodeValue && node.nodeValue.trim().length > 1) {
-      node.nodeValue = addQuotes(node.nodeValue);
+      node.nodeValue = addQuotes(node.nodeValue, intensity);
     }
   } else {
     if (node.tagName && !WHITELIST.has(node.tagName)) {
       return;
     }
     for (let i = 0; i < node.childNodes.length; i++) {
-      traverseNodes(node.childNodes[i]);
+      traverseNodes(node.childNodes[i], intensity);
     }
   }
 }
 
-traverseNodes(document.body);
+(async function() {
+  const settings = await loadSettings();
+  if (!settings.paused) {
+    traverseNodes(document.body, settings.intensity);
+  }
+})();

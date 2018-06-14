@@ -3,8 +3,9 @@
   "name": "Suspicious Quotes",
   "version": "1.0",
   "description": "Randomly adds quotation marks to websites for \"comedic\" effect.",
+  "permissions": ["storage"],
   "content_scripts": [{
     "matches": ["*://*/*"],
-    "js": ["suspicious-quotes.js"]
+    "js": ["settings.js", "suspicious-quotes.js"]
   }]
 }
