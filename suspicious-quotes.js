@@ -25,8 +25,34 @@ const WHITELIST = new Set([
   'TIME',
 ]);
 
+const OPEN_QUOTE = '“';
+const CLOSE_QUOTE = '”';
+
+const RATIO = 0.05;
+
+function findWords(text) {
+  const indices = [];
+  const wordRegex = /\w+/g;
+  let match;
+  while (match = wordRegex.exec(text)) {
+    indices.push([match.index, match.index + match[0].length]);
+  }
+  return indices;
+}
+
 function injectQuotes(node) {
-  console.log(node.nodeValue);
+  let modified = false;
+  let text = node.nodeValue;
+  const words = findWords(text).reverse();
+  words.forEach(([start, end]) => {
+    if (Math.random() < RATIO) {
+      modified = true;
+      text = text.slice(0, start) + OPEN_QUOTE + text.slice(start, end) + CLOSE_QUOTE + text.slice(end);
+    }
+  });
+  if (modified) {
+    node.nodeValue = text;
+  }
 }
 
 function traverseNodes(node) {
