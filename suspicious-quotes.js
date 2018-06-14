@@ -41,27 +41,21 @@ function findWords(text) {
   return indices;
 }
 
-function injectQuotes(node) {
-  let modified = false;
-  let text = node.nodeValue;
-
+function addQuotes(text) {
   // we iterate backwards so modifying the string doesn't mess up the indices
   const words = findWords(text).reverse();
   words.forEach(([start, end]) => {
     if (Math.random() < RATIO) {
-      modified = true;
       text = text.slice(0, start) + OPEN_QUOTE + text.slice(start, end) + CLOSE_QUOTE + text.slice(end);
     }
   });
-  if (modified) {
-    node.nodeValue = text;
-  }
+  return text;
 }
 
 function traverseNodes(node) {
   if (node.nodeType === Node.TEXT_NODE) {
     if (node.nodeValue && node.nodeValue.trim().length > 1) {
-      injectQuotes(node);
+      node.nodeValue = addQuotes(node.nodeValue);
     }
   } else {
     if (node.tagName && !WHITELIST.has(node.tagName)) {
