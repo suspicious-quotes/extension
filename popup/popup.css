@@ -51,7 +51,7 @@ button.paused {
 }
 
 #slider::-moz-range-track {
-  background: linear-gradient(to right, #30ffbc 0%,#fff76b 60%,#ff6666 100%);
+  background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
   height: 4px;
@@ -73,7 +73,7 @@ button.paused {
 }
 
 #slider::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, #30ffbc 0%,#fff76b 60%,#ff6666 100%);
+  background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
   height: 4px;
