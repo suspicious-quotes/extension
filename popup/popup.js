@@ -5,7 +5,7 @@ const settings = {};
 
 (async function() {
   const settings = await loadSettings();
-  slider.value = (settings.intensity * 100).toFixed(1);
+  slider.value = settings.intensity.toFixed(1);
   slider.dispatchEvent(new Event('input'));
   updatePauseButton(settings.paused);
 })();
@@ -15,7 +15,7 @@ slider.addEventListener('input', function() {
 });
 
 slider.addEventListener('change', function() {
-  const intensity = slider.value / 100;
+  const intensity = parseFloat(slider.value);
   saveSettings({ intensity, });
 });
 
