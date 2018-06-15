@@ -5,6 +5,25 @@
   src: local('Roboto Mono'), local('RobotoMono-Regular'), url(/fonts/roboto-mono.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/fa-solid-900.woff2") format("woff2");
+}
+
+.fa {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 900;
+  line-height: 1;
+  text-rendering: auto;
+}
+
 body {
   background-color: #fff;
   font-family: 'Roboto Mono', monospace;
@@ -23,7 +42,7 @@ label {
 }
 
 button {
-  background-color: #a9a9a9;
+  background-color: #c7c7c7;
   border-radius: 5px;
   border: none;
   color: #fff;
@@ -34,7 +53,6 @@ button {
   margin: 9px 0 15px 0;
   outline: none;
   padding: 10px;
-  text-shadow: 1px 1px #00000030;
   transition: 0.2s ease;
   width: 100%;
 }
@@ -45,6 +63,14 @@ button:hover {
 
 button.paused {
   background-color: #30ffbc;
+}
+
+button i:before {
+  content: "\f04c";
+}
+
+button.paused i:before {
+  content: "\f04b";
 }
 
 #slider {

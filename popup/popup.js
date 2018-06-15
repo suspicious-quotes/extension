@@ -29,9 +29,7 @@ pauseBtn.addEventListener('click', async function() {
 function updatePauseButton(pause) {
   if (pause) {
     pauseBtn.classList.add('paused');
-    pauseBtn.innerText = 'resume';
   } else {
     pauseBtn.classList.remove('paused');
-    pauseBtn.innerText = 'pause';
   }
 }
