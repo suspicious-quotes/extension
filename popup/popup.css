@@ -35,8 +35,8 @@ button {
   outline: none;
   padding: 10px;
   text-shadow: 1px 1px #00000030;
-  width: 100%;
   transition: 0.2s ease;
+  width: 100%;
 }
 
 button:hover {
@@ -57,12 +57,21 @@ button.paused {
   outline: none;
 }
 
+#slider::-moz-focus-outer, button::-moz-focus-inner {
+  border: 0;
+}
+
 #slider::-moz-range-track {
   background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
   height: 4px;
+  transition: height 0.1s ease;
   width: 100%;
+}
+
+#slider:active::-moz-range-track {
+  height: 8px;
 }
 
 #slider::-moz-range-thumb {
@@ -75,17 +84,19 @@ button.paused {
   width: 15px;
 }
 
-#slider::-moz-focus-outer, button::-moz-focus-inner {
-  border: 0;
-}
-
 #slider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
   height: 4px;
   margin-bottom: 6px;
+  transition: height 0.13s ease, margin-bottom 0.13s ease;
   width: 100%;
+}
+
+#slider:active::-webkit-slider-runnable-track {
+  height: 8px;
+  margin-bottom: 4px;
 }
 
 #slider::-webkit-slider-thumb {
@@ -97,5 +108,10 @@ button.paused {
   cursor: pointer;
   height: 15px;
   margin-top: -6px;
+  transition: margin-top 0.13s ease;
   width: 15px;
+}
+
+#slider:active::-webkit-slider-thumb {
+  margin-top: -4px;
 }
