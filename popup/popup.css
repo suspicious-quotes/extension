@@ -6,6 +6,11 @@ body {
   width: 180px;
 }
 
+p {
+  font-size: 10px;
+  margin: 0;
+}
+
 label {
   margin-bottom: 5px;
 }
@@ -19,7 +24,7 @@ button {
   font-family: inherit;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 9px;
+  margin: 9px 0 15px 0;
   outline: none;
   padding: 10px;
   text-shadow: 1px 1px #00000030;
