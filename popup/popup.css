@@ -1,0 +1,89 @@
+body {
+  background-color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  margin: 25px;
+  width: 180px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #a9a9a9;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 9px;
+  outline: none;
+  padding: 10px;
+  text-shadow: 1px 1px #00000030;
+  width: 100%;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 5px #0000004d;
+}
+
+button.paused {
+  background-color: #30ffbc;
+}
+
+#slider {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 100%;
+}
+
+#slider:focus {
+  outline: none;
+}
+
+#slider::-moz-range-track {
+  background: linear-gradient(to right, #30ffbc 0%,#fff76b 60%,#ff6666 100%);
+  border-radius: 8px;
+  cursor: pointer;
+  height: 4px;
+  width: 100%;
+}
+
+#slider::-moz-range-thumb {
+  background: #ffffff;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 0 12px #0000004f;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+}
+
+#slider::-moz-focus-outer, button::-moz-focus-inner {
+  border: 0;
+}
+
+#slider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #30ffbc 0%,#fff76b 60%,#ff6666 100%);
+  border-radius: 8px;
+  cursor: pointer;
+  height: 4px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #ffffff;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 0 12px #0000004f;
+  cursor: pointer;
+  height: 15px;
+  margin-top: -6px;
+  width: 15px;
+}
