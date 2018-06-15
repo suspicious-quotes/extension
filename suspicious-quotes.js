@@ -66,9 +66,8 @@ function traverseNodes(node, intensity) {
   }
 }
 
-(async function() {
-  const settings = await loadSettings();
+loadSettings(function(settings) {
   if (!settings.paused) {
     traverseNodes(document.body, settings.intensity);
   }
-})();
+});

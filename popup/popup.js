@@ -3,12 +3,11 @@ const percent = document.getElementById('percent');
 const pauseBtn = document.getElementById('pause');
 const settings = {};
 
-(async function() {
-  const settings = await loadSettings();
+loadSettings(function(settings) {
   slider.value = settings.intensity.toFixed(1);
   slider.dispatchEvent(new Event('input'));
   updatePauseButton(settings.paused);
-})();
+});
 
 slider.addEventListener('input', function() {
   percent.innerText = parseFloat(slider.value).toFixed(1);
@@ -20,11 +19,12 @@ slider.addEventListener('change', function() {
 });
 
 pauseBtn.addEventListener('click', async function() {
-  const settings = await loadSettings();
-  saveSettings({
-    paused: !settings.paused,
+  loadSettings(function(settings) {
+    saveSettings({
+      paused: !settings.paused,
+    });
+    updatePauseButton(!settings.paused);
   });
-  updatePauseButton(!settings.paused);
 });
 
 function updatePauseButton(pause) {

@@ -1,10 +1,10 @@
-const storage = browser.storage.local;
+const storage = chrome.storage.local;
 
-function loadSettings() {
-  return storage.get({
+function loadSettings(callback) {
+  storage.get({
     'paused': false,
     'intensity': 2.0,
-  });
+  }, callback);
 }
 
 function saveSettings(settings) {
