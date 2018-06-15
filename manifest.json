@@ -3,12 +3,20 @@
   "name": "Suspicious Quotes",
   "version": "1.0",
   "description": "Randomly adds quotation marks to websites for \"comedic\" effect.",
+  "icons": {
+    "48": "icons/48.png",
+    "96": "icons/96.png"
+  },
   "permissions": ["storage"],
   "content_scripts": [{
     "matches": ["*://*/*"],
     "js": ["settings.js", "suspicious-quotes.js"]
   }],
   "browser_action": {
+    "default_icon": {
+      "48": "icons/48.png",
+      "96": "icons/96.png"
+    },
     "default_title": "Suspicious Quotes",
     "default_popup": "popup/popup.html"
   }
