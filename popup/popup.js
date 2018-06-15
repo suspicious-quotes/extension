@@ -1,7 +1,6 @@
 const slider = document.getElementById('slider');
 const percent = document.getElementById('percent');
 const pauseBtn = document.getElementById('pause');
-const settings = {};
 
 loadSettings(function(settings) {
   slider.value = settings.intensity.toFixed(1);
