@@ -5,6 +5,16 @@ randomly adds quotation marks to your web pages for "comedic" effect.
 
 # Screenshots
 
+## Main UI
+![ui](screenshots/ui.png)
+
+-----
+
+## Hacker News
+![hacker news](screenshots/hn.png)
+
+-----
+
 ## Harvard
 ![harvard](screenshots/harvard.png)
 
