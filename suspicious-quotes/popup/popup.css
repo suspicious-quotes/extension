@@ -34,7 +34,7 @@ body {
 
 p {
   font-size: 10px;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 label {
@@ -50,10 +50,10 @@ button {
   font-family: inherit;
   font-size: 24px;
   font-weight: bold;
-  margin: 9px 0 15px 0;
+  margin: 5px 0;
   outline: none;
   padding: 10px;
-  transition: 0.2s ease;
+  transition: box-shadow 0.2s ease;
   width: 100%;
 }
 
@@ -61,33 +61,33 @@ button:hover {
   box-shadow: 0 0 5px #0000004d;
 }
 
-button.paused {
+#pause.paused {
   background-color: #30ffbc;
 }
 
-button i:before {
+#pause i:before {
   content: "\f04c";
 }
 
-button.paused i:before {
+#pause.paused i:before {
   content: "\f04b";
 }
 
-#slider {
+input[type=range] {
   -webkit-appearance: none;
   margin: 0;
   width: 100%;
 }
 
-#slider:focus {
+input[type=range]:focus {
   outline: none;
 }
 
-#slider::-moz-focus-outer, button::-moz-focus-inner {
+input[type=range]::-moz-focus-outer, button::-moz-focus-inner {
   border: 0;
 }
 
-#slider::-moz-range-track {
+input[type=range]::-moz-range-track {
   background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
@@ -96,11 +96,11 @@ button.paused i:before {
   width: 100%;
 }
 
-#slider:active::-moz-range-track {
+input[type=range]:active::-moz-range-track {
   height: 8px;
 }
 
-#slider::-moz-range-thumb {
+input[type=range]::-moz-range-thumb {
   background: #ffffff;
   border-radius: 2px;
   border: none;
@@ -110,7 +110,7 @@ button.paused i:before {
   width: 15px;
 }
 
-#slider::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
@@ -120,12 +120,12 @@ button.paused i:before {
   width: 100%;
 }
 
-#slider:active::-webkit-slider-runnable-track {
+input[type=range]:active::-webkit-slider-runnable-track {
   height: 8px;
   margin-bottom: 4px;
 }
 
-#slider::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: #ffffff;
   border-radius: 2px;
@@ -138,6 +138,6 @@ button.paused i:before {
   width: 15px;
 }
 
-#slider:active::-webkit-slider-thumb {
+input[type=range]:active::-webkit-slider-thumb {
   margin-top: -4px;
 }
