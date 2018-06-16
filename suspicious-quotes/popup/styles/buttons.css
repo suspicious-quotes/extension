@@ -17,13 +17,3 @@ button {
 button:hover {
   box-shadow: 0 0 5px #0000004d;
 }
-
-@keyframes pop-button-anim {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% {transform: scale(1); }
-}
-.pop-button {
-  animation-name: pop-button-anim;
-  animation-duration: 0.2s;
-}
