@@ -21,7 +21,12 @@ slider.addEventListener('input', function() {
 slider.addEventListener('change', function() {
   // onchange fires once after the slider is let go
   activateRefreshBtn();
-  unpause();
+  loadSettings(function(settings) {
+    if (settings.paused) {
+      unpause();
+      popButton(pauseBtn);
+    }
+  });
   const intensity = parseFloat(slider.value);
   saveSettings({ intensity, });
 });
@@ -62,3 +67,12 @@ function activateRefreshBtn() {
 refreshBtn.addEventListener('click', function() {
   chrome.tabs.reload();
 });
+
+/* Animations */
+function popButton(button) {
+  button.classList.add('pop-button');
+  button.addEventListener('animationend', function() {
+    button.classList.remove('pop-button');
+    button.removeEventListener('animationend', this);
+  });
+}
