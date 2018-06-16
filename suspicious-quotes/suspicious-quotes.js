@@ -42,7 +42,7 @@ function findWords(text) {
 function addQuotes(text, intensity) {
   // we iterate backwards so modifying the string doesn't mess up the indices
   const words = findWords(text).reverse();
-  threshold = intensity / 100;
+  const threshold = intensity / 100;
   words.forEach(([start, end]) => {
     if (Math.random() < threshold) {
       text = text.slice(0, start) + OPEN_QUOTE + text.slice(start, end) + CLOSE_QUOTE + text.slice(end);
