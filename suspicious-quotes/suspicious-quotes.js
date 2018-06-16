@@ -31,7 +31,7 @@ const CLOSE_QUOTE = '”';
 
 function findWords(text) {
   const indices = [];
-  const wordRegex = /\w+/g;
+  const wordRegex = /[\w’'-,.]+/g;
   let match;
   while (match = wordRegex.exec(text)) {
     indices.push([match.index, match.index + match[0].length]);
