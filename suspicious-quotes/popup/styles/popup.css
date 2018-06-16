@@ -15,6 +15,7 @@ label {
   margin-bottom: 5px;
 }
 
+/* Pause button */
 #pause.paused {
   background-color: #30ffbc;
 }
@@ -25,4 +26,29 @@ label {
 
 #pause.paused i:before {
   content: "\f04b";
+}
+
+/* Refresh button */
+#refresh {
+  background-color: #56b9ff;
+  display: none;
+  transform: scale(0);
+  transition: transform 0.1s ease;
+}
+
+#refresh.activated {
+  display: block;
+}
+
+#refresh.pop-in {
+  transform: scale(1);
+  transition: transform 0.1s ease;
+}
+
+#refresh i {
+  height: 0;
+}
+
+#refresh i:before {
+  content: "\f021";
 }

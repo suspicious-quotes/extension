@@ -23,7 +23,3 @@
   line-height: 1;
   text-rendering: auto;
 }
-
-.fa-sync:before {
-  content: "\f021";
-}
