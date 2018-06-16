@@ -21,6 +21,7 @@ slider.addEventListener('input', function() {
 slider.addEventListener('change', function() {
   // onchange fires once after the slider is let go
   activateRefreshBtn();
+  unpause();
   const intensity = parseFloat(slider.value);
   saveSettings({ intensity, });
 });
