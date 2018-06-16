@@ -66,7 +66,7 @@ function traverseNodes(node, intensity) {
   }
 }
 
-loadSettings(function(settings) {
+loadSettings((settings) => {
   if (!settings.paused) {
     traverseNodes(document.body, settings.intensity);
   }

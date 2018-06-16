@@ -5,7 +5,7 @@ const percent = getId('percent');
 const pauseBtn = getId('pause');
 const refreshBtn = getId('refresh');
 
-loadSettings(function(settings) {
+loadSettings((settings) => {
   slider.value = settings.intensity.toFixed(1);
   slider.dispatchEvent(new Event('input'));
   updatePauseState(settings.paused);
@@ -13,12 +13,12 @@ loadSettings(function(settings) {
 
 
 /* Slider */
-slider.addEventListener('input', function() {
+slider.addEventListener('input', () => {
   // oninput fires every time the slider moves
   percent.innerText = parseFloat(slider.value).toFixed(1);
 });
 
-slider.addEventListener('change', function() {
+slider.addEventListener('change', () => {
   // onchange fires once after the slider is let go
   activateRefreshBtn();
   const intensity = parseFloat(slider.value);
@@ -27,11 +27,9 @@ slider.addEventListener('change', function() {
 
 
 /* Pause button */
-pauseBtn.addEventListener('click', function() {
+pauseBtn.addEventListener('click', () => {
   activateRefreshBtn();
-  loadSettings(function(settings) {
-    updatePauseState(!settings.paused);
-  });
+  loadSettings(settings => updatePauseState(!settings.paused));
 });
 
 function updatePauseState(paused) {
@@ -58,6 +56,4 @@ function activateRefreshBtn() {
   }
 }
 
-refreshBtn.addEventListener('click', function() {
-  chrome.tabs.reload();
-});
+refreshBtn.addEventListener('click', () => chrome.tabs.reload());
