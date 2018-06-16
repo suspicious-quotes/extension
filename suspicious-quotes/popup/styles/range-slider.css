@@ -16,7 +16,7 @@ input[type=range]::-moz-focus-outer {
 }
 
 input[type=range]::-moz-range-track {
-  background: linear-gradient(to right, #30ffbc 0%,#fff76b 30%,#ff6666 100%);
+  background: linear-gradient(to right, #30ffbc 0%, #fff76b 30%, #ff6666 100%);
   border-radius: 8px;
   cursor: pointer;
   height: 4px;
