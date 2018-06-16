@@ -7,6 +7,4 @@ function loadSettings(callback) {
   }, callback);
 }
 
-function saveSettings(settings) {
-  return storage.set(settings);
-}
+const saveSettings = storage.set;
