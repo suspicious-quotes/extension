@@ -8,45 +8,56 @@ const refreshBtn = getId('refresh');
 loadSettings(function(settings) {
   slider.value = settings.intensity.toFixed(1);
   slider.dispatchEvent(new Event('input'));
-  updatePauseButton(settings.paused);
+  updatePauseState(settings.paused);
 });
 
+
+/* Slider */
 slider.addEventListener('input', function() {
+  // oninput fires every time the slider moves
   percent.innerText = parseFloat(slider.value).toFixed(1);
 });
 
 slider.addEventListener('change', function() {
-  refreshBtn.dispatchEvent(new Event('activate-button'));
+  // onchange fires once after the slider is let go
+  activateRefreshBtn();
   const intensity = parseFloat(slider.value);
   saveSettings({ intensity, });
 });
 
-pauseBtn.addEventListener('click', async function() {
-  refreshBtn.dispatchEvent(new Event('activate-button'));
+
+/* Pause button */
+pauseBtn.addEventListener('click', function() {
+  activateRefreshBtn();
   loadSettings(function(settings) {
-    saveSettings({
-      paused: !settings.paused,
-    });
-    updatePauseButton(!settings.paused);
+    updatePauseState(!settings.paused);
   });
 });
 
-refreshBtn.addEventListener('activate-button', function() {
+function updatePauseState(paused) {
+  paused ? pause() : unpause();
+}
+
+function pause() {
+  saveSettings({ paused: true, });
+  pauseBtn.classList.add('paused');
+}
+
+function unpause() {
+  saveSettings({ paused: false, });
+  pauseBtn.classList.remove('paused');
+}
+
+
+/* Refresh button */
+function activateRefreshBtn() {
   if (!refreshBtn.classList.contains('activated')) {
     refreshBtn.classList.add('activated');
     refreshBtn.getBoundingClientRect(); // force a reflow
     refreshBtn.classList.add('pop-in');
   }
-});
+}
 
 refreshBtn.addEventListener('click', function() {
   chrome.tabs.reload();
 });
-
-function updatePauseButton(pause) {
-  if (pause) {
-    pauseBtn.classList.add('paused');
-  } else {
-    pauseBtn.classList.remove('paused');
-  }
-}
