@@ -52,7 +52,7 @@ function activateRefreshBtn() {
   if (!refreshBtn.classList.contains('activated')) {
     refreshBtn.classList.add('activated');
     refreshBtn.getBoundingClientRect(); // force a reflow
-    refreshBtn.classList.add('pop-in');
+    refreshBtn.classList.add('appear');
   }
 }
 

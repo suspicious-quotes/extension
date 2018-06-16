@@ -40,7 +40,7 @@ label {
   display: block;
 }
 
-#refresh.pop-in {
+#refresh.appear {
   transform: scale(1);
   transition: transform 0.1s ease;
 }
