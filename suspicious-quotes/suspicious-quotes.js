@@ -51,15 +51,24 @@ function addQuotes(text, intensity) {
   return text;
 }
 
+function filterNodes(node) {
+  if (WHITELIST.has(node.parentNode.tagName)) {
+    return NodeFilter.FILTER_ACCEPT;
+  } else {
+    return NodeFilter.FILTER_REJECT;
+  }
+}
+
 function traverseNodes(node, intensity) {
   const walker = document.createTreeWalker(
     node,
     NodeFilter.SHOW_TEXT,
-    { acceptNode: node => !WHITELIST.has(node.tagName) },
+    { acceptNode: filterNodes },
     false,
   );
-  while (walker.nextNode()) {
-    const curr = walker.nextNode();
+
+  let curr;
+  while ((curr = walker.nextNode())) {
     curr.nodeValue = addQuotes(curr.nodeValue, intensity);
   }
 }
