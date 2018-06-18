@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Suspicious Quotes",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Randomly adds quotation marks to websites for \"comedic\" effect.",
   "icons": {
     "48": "icons/48.png",
