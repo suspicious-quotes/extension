@@ -52,17 +52,15 @@ function addQuotes(text, intensity) {
 }
 
 function traverseNodes(node, intensity) {
-  if (node.nodeType === Node.TEXT_NODE) {
-    if (node.nodeValue && node.nodeValue.trim().length > 1) {
-      node.nodeValue = addQuotes(node.nodeValue, intensity);
-    }
-  } else {
-    if (node.tagName && !WHITELIST.has(node.tagName)) {
-      return;
-    }
-    for (let i = 0; i < node.childNodes.length; i++) {
-      traverseNodes(node.childNodes[i], intensity);
-    }
+  const walker = document.createTreeWalker(
+    node,
+    NodeFilter.SHOW_TEXT,
+    { acceptNode: node => !WHITELIST.has(node.tagName) },
+    false,
+  );
+  while (walker.nextNode()) {
+    const curr = walker.nextNode();
+    curr.nodeValue = addQuotes(curr.nodeValue, intensity);
   }
 }
 
