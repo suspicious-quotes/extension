@@ -56,4 +56,22 @@ function activateRefreshBtn() {
   }
 }
 
+/* Donation link */
+document.addEventListener('DOMContentLoaded', function () {
+  var links = document.getElementsByTagName("a");
+  for (var i = 0; i < links.length; i++) {
+    (function () {
+      var link = links[i];
+      var href = link.href;
+      link.onclick = function () {
+        chrome.tabs.create({
+          active: true,
+          url: href,
+        });
+      };
+    })();
+  }
+});
+
+
 refreshBtn.addEventListener('click', () => chrome.tabs.reload());
