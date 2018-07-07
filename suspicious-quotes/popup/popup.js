@@ -57,18 +57,19 @@ function activateRefreshBtn() {
 }
 
 /* Donation link */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   var links = document.getElementsByTagName("a");
   for (var i = 0; i < links.length; i++) {
-    (function () {
+    (function() {
       var link = links[i];
       var href = link.href;
-      link.onclick = function () {
+      link.addEventListener('click', function(e) {
         chrome.tabs.create({
           active: true,
           url: href,
         });
-      };
+        e.preventDefault();
+      });
     })();
   }
 });
