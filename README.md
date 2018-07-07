@@ -5,9 +5,10 @@ randomly adds quotation marks to your web pages for "comedic" effect.
 
 ["Donate" here](https://www.buymeacoffee.com/jesse).
 
-Install on:
+# Install
 
 * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/suspicious-quotes/)
+* [Chrome](https://chrome.google.com/webstore/detail/suspicious-quotes/cgjjhgfhndpecjgfeadmkkfcblclfjpi)
 
 # Screenshots
 
