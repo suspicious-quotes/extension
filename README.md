@@ -1,9 +1,9 @@
 # Suspicious Quotes
 
-Inspired by [/r/suspiciousquotes](https://www.reddit.com/r/suspiciousquotes/), this "browser extension"
-randomly adds quotation marks to your web pages for "comedic" effect.
+Inspired by [/r/suspiciousquotes](https://www.reddit.com/r/suspiciousquotes/), this “browser extension”
+randomly adds quotation marks to your web pages for “comedic” effect.
 
-["Donate" here](https://www.buymeacoffee.com/jesse).
+[“Donate” here](https://www.buymeacoffee.com/jesse).
 
 # Install
 
@@ -62,3 +62,7 @@ Semver is kind of complicated, so I just add 0.1 to the current version whenever
 ## Give me money
 
 [Give me money](https://www.buymeacoffee.com/jesse).
+
+## Disclaimer
+
+There have been “unfortunate” report(s) of this extension totally wrecking documents on certain sites like Dropbox Paper or other DOM-based editors. IANAL but please don't come for my neck if this extension accidentally ruins something important to you. It's really your fault for installing it in the first place, idiot. Thank you.
